@@ -6,15 +6,15 @@ const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({})
 
   useEffect( ()=> {
-
+    
     obtenerProductos()
-      .then((data)=> {
-        const productoEncontrado = data.find( (productoData) => productoData.id === "Frg333")
-        setProducto(productoEncontrado)
-      })
-
+    .then((data)=> {
+      const productoEncontrado = data.find( (productoData) => productoData.id === "Frg333")
+      setProducto(productoEncontrado)
+    })
+    
   }, [] )
-
+  
   return (
     <ItemDetail producto={producto} />
   )
