@@ -4,36 +4,39 @@ import logo from "../../assets/epic.png";
 import { FaBasketballBall } from "react-icons/fa";
 import { GiCrossbow } from "react-icons/gi";
 import { LiaMountainSolid } from "react-icons/lia";
+import { Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
     <nav className="navbar">
-      <div className="brand">
+      <Link to="/" className="brand">
         <img src={logo} alt="" />
-      </div>
+      </Link>
 
       <ul className="categories">
-        <div className="category">
+        <Link to="/categoria/deportes" className="category">
           <p>Deportes</p>
           <div className="img-category">
             <FaBasketballBall size={40} />
           </div>
-        </div>
+        </Link>
 
-        <div className="category">
+        <Link to="/categoria/aventura" className="category">
+          <p>Aventura</p>
+          <div className="img-category">
+            <LiaMountainSolid size={40} />
+          </div>
+        </Link>
+      </ul>
+        {/* 
+          <div className="category">
           <p>Acción</p>
           <div className="img-category">
             <GiCrossbow size={40} />
           </div>
         </div>
+          */}
 
-        <div className="category">
-          <p>Aventura</p>
-          <div className="img-category">
-            <LiaMountainSolid size={40} />
-          </div>
-        </div>
-      </ul>
 
       <CartWidget />
     </nav>

@@ -4,7 +4,7 @@ const productos = [
     nombre: "Ea Sport fc 24",
     descripcion: "",
     precio: 200,
-    categoria: "futbol",
+    categoria: "deportes",
     stock: 10,
     imagen: "/img/fc.webp"
   },
