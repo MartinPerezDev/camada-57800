@@ -2,9 +2,9 @@ import "./navbar.css";
 import CartWidget from "./CartWidget";
 import logo from "../../assets/epic.png";
 import { FaBasketballBall } from "react-icons/fa";
-import { GiCrossbow } from "react-icons/gi";
+import { BiBullseye } from "react-icons/bi";
 import { LiaMountainSolid } from "react-icons/lia";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -27,17 +27,14 @@ const NavBar = () => {
             <LiaMountainSolid size={40} />
           </div>
         </Link>
-      </ul>
-        {/* 
-          <div className="category">
+
+        <Link to="/categoria/accion" className="category">
           <p>Acción</p>
           <div className="img-category">
-            <GiCrossbow size={40} />
+            <BiBullseye size={40} />
           </div>
-        </div>
-          */}
-
-
+        </Link>
+      </ul>
       <CartWidget />
     </nav>
   );

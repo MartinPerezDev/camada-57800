@@ -1,24 +1,20 @@
-import { useState, useEffect } from "react"
-import obtenerProductos from "../../data/data.js"
-import ItemDetail from "./ItemDetail"
-import { useParams } from "react-router-dom"
+import { useState, useEffect } from "react";
+import obtenerProductos from "../../data/data.js";
+import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import "./itemDetailContainer.css";
 
 const ItemDetailContainer = () => {
-  const [producto, setProducto] = useState({})
-  const { idProducto } = useParams()
+  const [producto, setProducto] = useState({});
+  const { idProducto } = useParams();
 
-  useEffect( ()=> {
+  useEffect(() => {
+    obtenerProductos().then((data) => {
+      const productoEncontrado = data.find((productoData) => productoData.id === idProducto);
+      setProducto(productoEncontrado);
+    });
+  }, []);
 
-    obtenerProductos()
-      .then((data)=> {
-        const productoEncontrado = data.find( (productoData) => productoData.id ===  idProducto )
-        setProducto(productoEncontrado)
-      })
-
-  }, [] )
-
-  return (
-    <ItemDetail producto={producto} />
-  )
-}
-export default ItemDetailContainer
+  return <ItemDetail producto={producto} />;
+};
+export default ItemDetailContainer;
