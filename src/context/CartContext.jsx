@@ -9,12 +9,38 @@ const CartProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([])
 
   const agregarProducto = (productoNuevo) => {
-    setCarrito( [ ...carrito, productoNuevo ] )
+    const condicion = estaEnElCarrito(productoNuevo.id)
+    if(condicion){
+      //Sumar cantidades
+      const nuevoCarrito = carrito.map((productoCarrito)=> {
+        if(productoCarrito.id === productoNuevo.id){
+          return { ...productoCarrito, cantidad: productoCarrito.cantidad + productoNuevo.cantidad }
+        }else{
+          return productoCarrito
+        }
+      })
+      
+      setCarrito(nuevoCarrito)
+      /*
+      let nuevoCarrito = [...carrito]
+      nuevoCarrito.forEach((productoCarrito)=>{
+        if(productoCarrito.id === productoNuevo.id){
+          productoCarrito.cantidad = productoCarrito.cantidad + productoNuevo.cantidad
+        }
+      })
+      */
+    }else{
+      //Agregar el producto como nuevo
+      setCarrito( [ ...carrito, productoNuevo ] )
+    }
 
-    //logica para sumar cantidades o agregar el producto como nuevo
   }
 
   //Funcion para detectar si el producto a añadir esta en el carrito o no
+  const estaEnElCarrito = (idProducto) => {
+    const condicional = carrito.some( (productoCarrito) => productoCarrito.id === idProducto )
+    return condicional
+  }
 
   const cantidadTotal = () => {
     const totalProductos = carrito.reduce( ( total, productoCarrito) => total + productoCarrito.cantidad, 0 )

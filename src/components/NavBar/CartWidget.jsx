@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 const CartWidget = () => {
   const { cantidadTotal } = useContext(CartContext)
 
+  let cantidad = cantidadTotal()
+
   return (
     <Link to="/cart" className="cartwidget">
-      <BsBagDash size={35} />
-      <p>{ cantidadTotal() }</p>
+      <BsBagDash size={35} className={ cantidad === 0 ? "iconRed" : "iconGreen" } />
+      <p>{ cantidad > 0 && cantidad }</p>
     </Link>
   )
 }
