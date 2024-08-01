@@ -1,3 +1,7 @@
+.itemlist{
+  display: flex;
+  flex-wrap: wrap;
+}
 .card{
   width: 250px;
   margin: 50px 100px 50px 20px;

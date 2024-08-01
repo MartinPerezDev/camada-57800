@@ -1,11 +1,16 @@
 import { BsBagDash } from "react-icons/bs";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
+  const { cantidadTotal } = useContext(CartContext)
+
   return (
-    <div className="cartwidget">
+    <Link to="/cart" className="cartwidget">
       <BsBagDash size={35} />
-      <p>1</p>
-    </div>
+      <p>{ cantidadTotal() }</p>
+    </Link>
   )
 }
 export default CartWidget
