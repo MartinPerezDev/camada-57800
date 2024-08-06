@@ -1,25 +1,25 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { carrito, precioTotal, borrarProducto, vaciarCarrito } = useContext(CartContext);
 
   //Early return o return temprano
-  if(carrito.length === 0){
+  if (carrito.length === 0) {
     return (
       <div>
         <h2>El carrito esta vacio 😥</h2>
-        <Link to="/" >Ver Productos</Link>
+        <Link to="/">Ver Productos</Link>
       </div>
-    )
+    );
   }
 
   return (
     <div>
-      <ul style={{ display: "flex", flexDirection: "column" }}>
+      <ul style={{ display: 'flex', flexDirection: 'column' }}>
         {carrito.map((productoCarrito) => (
-          <li style={{ display: "flex", justifyContent: "space-around" }}>
+          <li style={{ display: 'flex', justifyContent: 'space-around' }}>
             <img width={150} src={productoCarrito.imagen} alt="" />
             <p>{productoCarrito.nombre}</p>
             <p>Cantidad: {productoCarrito.cantidad}</p>

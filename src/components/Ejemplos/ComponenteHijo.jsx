@@ -1,6 +1,4 @@
 const ComponenteHijo = () => {
-  return (
-    <div>ComponenteHijo</div>
-  )
-}
-export default ComponenteHijo
+  return <div>ComponenteHijo</div>;
+};
+export default ComponenteHijo;

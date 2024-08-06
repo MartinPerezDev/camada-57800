@@ -1,8 +1,8 @@
-import ItemCount from "../ItemCount/ItemCount";
-import "./itemDetailContainer.css";
-import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import ItemCount from '../ItemCount/ItemCount';
+import './itemDetailContainer.css';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ producto }) => {
   const { agregarProducto } = useContext(CartContext);
@@ -14,7 +14,7 @@ const ItemDetail = ({ producto }) => {
     agregarProducto(productoCarrito);
 
     //ocultamos el componente ItemCount
-    setMostrarItemCount(false)
+    setMostrarItemCount(false);
   };
 
   return (

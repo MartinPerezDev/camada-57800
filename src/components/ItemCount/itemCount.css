@@ -1,12 +1,12 @@
-.itemcount{
+.itemcount {
   width: 160px;
 }
-.itemcount .controls{
+.itemcount .controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.controls button{
+.controls button {
   background-color: rgb(19, 19, 19);
   border: none;
   color: white;
@@ -15,10 +15,10 @@
   border-radius: 5px;
   border: 2px solid rgb(93, 93, 93);
 }
-.controls button:hover{
+.controls button:hover {
   cursor: pointer;
 }
-.itemcount .add{
+.itemcount .add {
   background-color: rgb(19, 19, 19);
   border: none;
   color: white;
@@ -29,6 +29,6 @@
   padding: 10px 0;
   margin: 10px 0;
 }
-.itemcount .add:hover{
+.itemcount .add:hover {
   cursor: pointer;
 }

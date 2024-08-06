@@ -1,21 +1,19 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const Titulo = () => {
-
-  useEffect(()=> {
-
+  useEffect(() => {
     const mostrarTamañoVentana = () => {
-      console.log("Ancho: ", window.innerWidth)
-    }
+      console.log('Ancho: ', window.innerWidth);
+    };
 
     //declaramos el evento a escuchar
-    window.addEventListener("resize", mostrarTamañoVentana)
+    window.addEventListener('resize', mostrarTamañoVentana);
 
     //cleanup effect
     return () => {
-      window.removeEventListener("resize", mostrarTamañoVentana)
-    }
-  }, [])
+      window.removeEventListener('resize', mostrarTamañoVentana);
+    };
+  }, []);
 
   return (
     <>

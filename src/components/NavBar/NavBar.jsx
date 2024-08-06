@@ -1,10 +1,10 @@
-import "./navbar.css";
-import CartWidget from "./CartWidget";
-import logo from "../../assets/epic.png";
-import { FaBasketballBall } from "react-icons/fa";
-import { BiBullseye } from "react-icons/bi";
-import { LiaMountainSolid } from "react-icons/lia";
-import { Link } from "react-router-dom";
+import './navbar.css';
+import CartWidget from './CartWidget';
+import logo from '../../assets/epic.png';
+import { FaBasketballBall } from 'react-icons/fa';
+import { BiBullseye } from 'react-icons/bi';
+import { LiaMountainSolid } from 'react-icons/lia';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
