@@ -12,26 +12,34 @@ const ItemListContainer = ({ saludo }) => {
   const { idCategoria } = useParams();
 
   const getProducts = async () => {
-    const productosRef = collection(db, 'productos');
-    const dataDb = await getDocs(productosRef);
+    try {
+      const productosRef = collection(db, 'productos');
+      const dataDb = await getDocs(productosRef);
 
-    const data = dataDb.docs.map((productDb) => {
-      return { id: productDb.id, ...productDb.data() };
-    });
+      const data = dataDb.docs.map((productDb) => {
+        return { id: productDb.id, ...productDb.data() };
+      });
 
-    setProductos(data);
+      setProductos(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getProductsByCategory = async () => {
-    const productosRef = collection(db, 'productos');
-    const q = query(productosRef, where('categoria', '==', idCategoria));
-    const dataDb = await getDocs(q);
+    try {
+      const productosRef = collection(db, 'productos');
+      const q = query(productosRef, where('categoria', '==', idCategoria));
+      const dataDb = await getDocs(q);
 
-    const data = dataDb.docs.map((productDb) => {
-      return { id: productDb.id, ...productDb.data() };
-    });
+      const data = dataDb.docs.map((productDb) => {
+        return { id: productDb.id, ...productDb.data() };
+      });
 
-    setProductos(data);
+      setProductos(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
