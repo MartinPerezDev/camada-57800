@@ -1,6 +1,6 @@
 const FormularioCheckout = ({ datosForm, handleChangeInput, handleSubmitForm }) => {
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form onSubmit={handleSubmitForm} className="form-checkout">
       <label>Nombre: </label>
       <input type="text" name="nombre" value={datosForm.nombre} onChange={handleChangeInput} />
 
@@ -10,7 +10,9 @@ const FormularioCheckout = ({ datosForm, handleChangeInput, handleSubmitForm }) 
       <label>Email</label>
       <input type="email" name="email" value={datosForm.email} onChange={handleChangeInput} />
 
-      <button type="submit">Enviar orden</button>
+      <button type="submit" className="button-form">
+        Enviar orden
+      </button>
     </form>
   );
 };

@@ -24,14 +24,6 @@ const CartProvider = ({ children }) => {
       });
 
       setCarrito(nuevoCarrito);
-      /*
-      let nuevoCarrito = [...carrito]
-      nuevoCarrito.forEach((productoCarrito)=>{
-        if(productoCarrito.id === productoNuevo.id){
-          productoCarrito.cantidad = productoCarrito.cantidad + productoNuevo.cantidad
-        }
-      })
-      */
     } else {
       //Agregar el producto como nuevo
       setCarrito([...carrito, productoNuevo]);

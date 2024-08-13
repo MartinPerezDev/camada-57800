@@ -5,6 +5,7 @@ import './itemListContainer.css';
 import { ClimbingBoxLoader } from 'react-spinners';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import db from '../../db/db.js';
+import Banner from '../Banner/Banner.jsx';
 
 const ItemListContainer = ({ saludo }) => {
   const [productos, setProductos] = useState([]);
@@ -21,6 +22,7 @@ const ItemListContainer = ({ saludo }) => {
       });
 
       setProductos(data);
+      setEstaCargando(false);
     } catch (error) {
       console.log(error);
     }
@@ -43,6 +45,7 @@ const ItemListContainer = ({ saludo }) => {
   };
 
   useEffect(() => {
+    setEstaCargando(true);
     if (idCategoria) {
       getProductsByCategory();
     } else {
@@ -52,6 +55,7 @@ const ItemListContainer = ({ saludo }) => {
 
   return (
     <div>
+      <Banner />
       <p>{saludo}</p>
       {estaCargando ? (
         <div>

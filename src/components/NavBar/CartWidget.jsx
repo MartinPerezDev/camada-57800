@@ -10,7 +10,7 @@ const CartWidget = () => {
 
   return (
     <Link to="/cart" className="cartwidget">
-      <BsBagDash size={35} className={cantidad === 0 ? 'iconRed' : 'iconGreen'} />
+      <BsBagDash size={35} />
       <p>{cantidad > 0 && cantidad}</p>
     </Link>
   );
