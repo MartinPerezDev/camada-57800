@@ -3,7 +3,12 @@ import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import './itemListContainer.css';
 import { ClimbingBoxLoader } from 'react-spinners';
-import { getDocs, collection, query, where } from 'firebase/firestore';
+import {
+  getDocs,
+  collection,
+  query,
+  where,
+} from 'firebase/firestore';
 import db from '../../db/db.js';
 import Banner from '../Banner/Banner.jsx';
 
@@ -31,7 +36,10 @@ const ItemListContainer = ({ saludo }) => {
   const getProductsByCategory = async () => {
     try {
       const productosRef = collection(db, 'productos');
-      const q = query(productosRef, where('categoria', '==', idCategoria));
+      const q = query(
+        productosRef,
+        where('categoria', '==', idCategoria)
+      );
       const dataDb = await getDocs(q);
 
       const data = dataDb.docs.map((productDb) => {
@@ -39,6 +47,7 @@ const ItemListContainer = ({ saludo }) => {
       });
 
       setProductos(data);
+      setEstaCargando(false);
     } catch (error) {
       console.log(error);
     }
